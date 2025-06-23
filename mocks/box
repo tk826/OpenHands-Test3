@@ -3,8 +3,16 @@
 if [[ "$1" == "folders:upload" ]]; then
   echo "[MOCK] box $@"
   exit "${MOCK_BOX_RTESULT:-0}"
+elif [[ "$1" == "configure:environments:add" ]]; then
+  echo "[MOCK] box $@"
+  exit "${MOCK_BOX_CONFIGURE_ENVIRONMENTS_ADD_RESULT:-0}"
+elif [[ "$1" == "configure:environments:delete" ]]; then
+  echo "[MOCK] box $@"
+  exit "${MOCK_BOX_CONFIGURE_ENVIRONMENTS_DELETE_RESULT:-0}"
+elif [[ "$1" == "folders:items" ]]; then
+  echo "folder,999,0,0,${MOCK_BOX_ITEM_PATH},,,,"
+  exit "${MOCK_BOX_FOLDERS_ITEMS_RESULT:-0}"
 else
-    echo "box CLI not found" >&2
-    exit 127
-  fi
+  echo "box CLI not found" >&2
+  exit 127
 fi
